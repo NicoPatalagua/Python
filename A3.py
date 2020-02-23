@@ -1,0 +1,23 @@
+import numpy as np 
+N=600851475143
+Lim=10 ** 6
+def Factor(n):
+    a=np.ceil(np.sqrt(n))
+    lim=min(n,Lim)
+    a=np.arange(a,a+lim)
+    b2=a** 2-n
+    fractions=np.modf(np.sqrt(b2))[0]
+    indices=np.where(fractions==0)
+    a=np.ravel(np.take(a,indices))[0]
+    a=int(a)
+    b=np.sqrt(a**2-n)
+    b=int(b)
+    c=a+b
+    d=a-b
+
+    if c==1 or d==1:
+        return
+    print(c,d)
+    Factor(c)
+    Factor(d)
+Factor(N)
