@@ -14,7 +14,6 @@ def Factor(n):
     b=int(b)
     c=a+b
     d=a-b
-
     if c==1 or d==1:
         return
     print(c,d)
